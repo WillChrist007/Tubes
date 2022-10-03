@@ -1,5 +1,5 @@
 <?php
-    include '../component/sidebar.php';
+    include '../component/adminSidebar.php';
     include '../db.php';
 
     $id = $_GET['id'];

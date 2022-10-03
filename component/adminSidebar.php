@@ -70,19 +70,15 @@ echo'
                     <div class="menu">
                         <div class="content-menu">
                             <i class="fa fa-dashboard"></i>
-                            <a href="./dashboardPage.php" style="font-weight:600">Dashboard</a>
+                            <a href="./admin/listBukuPage.php" style="font-weight:600">List Buku</a>
+                        </div>
+                        <div class="content-menu">
+                            <i class="fa fa-dashboard"></i>
+                            <a href="./admin/listPeminjamPage.php" style="font-weight:600">List Peminjam</a>
                         </div>
                         <div class="content-menu ">
                             <i class="fa fa-film"></i>
-                            <a href="./profilePage.php" style="fontweight:600">Profile</a>
-                        </div>
-                        <div class="content-menu ">
-                            <i class="fa fa-film"></i>
-                            <a href="./listMoviesPage.php" style="fontweight:600">List Movie</a>
-                        </div>
-                        <div class="content-menu ">
-                            <i class="fa fa-film"></i>
-                            <a href="./listSeriesPage.php" style="fontweight:600">List Series</a>
+                            <a href="./Admin/editPasswordPage.php" style="fontweight:600">Profile</a>
                         </div>
                         <div class="content-menu ">
                             <i class="fa fa-sign-out"></i>
