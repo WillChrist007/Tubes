@@ -23,14 +23,14 @@ if (isset($_POST['login'])) {
                 $_SESSION['user'] = $user;
                 echo
                 '<script>
-                alert("Login Success"); window.location = "../component/listBukuPage.php"
+                alert("Login Success"); window.location = "../page/admin/listBukuPage.php"
                 </script>';
             } else {
                 $_SESSION['isLogin'] = true;
                 $_SESSION['user'] = $user;
                 echo
                 '<script>
-                alert("Login Success"); window.location = "../component/userSidebar.php"
+                alert("Login Success"); window.location = "../page/user/listBukuPage.php"
                 </script>';
             }
 
@@ -50,3 +50,5 @@ if (isset($_POST['login'])) {
     </script>';
 }
 ?>
+
+<!-- Login process done -->
