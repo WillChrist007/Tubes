@@ -3,7 +3,7 @@ session_start();
 if (isset($_GET['id'])) {
     include('../db.php');
     $id = $_GET['id'];
-    $queryDelete = mysqli_query($con, "DELETE FROM series WHERE id='$id'") or
+    $queryDelete = mysqli_query($con, "DELETE FROM buku WHERE id='$id'") or
         die(mysqli_error($con));
     if ($queryDelete) {
         echo
@@ -23,3 +23,5 @@ if (isset($_GET['id'])) {
         </script>';
 }
 ?>
+
+<!-- EDIT di bagian nomor 6 -->
