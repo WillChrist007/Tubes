@@ -23,14 +23,14 @@ if (isset($_POST['login'])) {
                 $_SESSION['user'] = $user;
                 echo
                 '<script>
-                alert("Login Success"); window.location = "../page/admin/listBukuPage.php"
+                alert("Login Success"); window.location = "../component/listBukuPage.php"
                 </script>';
             } else {
                 $_SESSION['isLogin'] = true;
                 $_SESSION['user'] = $user;
                 echo
                 '<script>
-                alert("Login Success"); window.location = "../page/dashboardPage.php"
+                alert("Login Success"); window.location = "../component/userSidebar.php"
                 </script>';
             }
 

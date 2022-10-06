@@ -8,12 +8,12 @@ if (isset($_GET['id'])) {
     if ($queryDelete) {
         echo
             '<script>
-            alert("Delete Success"); window.location = "../page/listSeriesPage.php"
+            alert("Delete Success"); window.location = "../page/admin/listBukuPage.php"
             </script>';
     } else {
         echo
             '<script>
-            alert("Delete Failed"); window.location = "../page/listSeriesPage.php"
+            alert("Delete Failed"); window.location = "../page/admin/listBukuPage.php"
             </script>';
     }
 } else {
