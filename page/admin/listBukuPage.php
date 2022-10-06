@@ -1,29 +1,28 @@
 <?php
-include '../component/adminSidebar.php'
+include '../../component/adminSidebar.php'
 ?>
 <div class="container p-3 m-4 h-100" style="background-color: #FFFFFF; border-top: 5px
 solid #D40013; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0,
 0.19);">
     <div class="body d-flex justify-content-between">
-        <h4>LIST SERIES</h4>
-        <a href="../page/addSeriePage.php"><i style="color: red" class="bi bi-plus-square-fill"></i></a>
+        <h4>LIST BUKU</h4>
+        <a href="../page/addBukuPage.php"><i style="color: red" class="bi bi-plus-square-fill"></i></a>
     </div>
     <hr>
     <table class="table ">
         <thead>
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Name</th>
-                <th scope="col">Genre</th>
-                <th scope="col">Realese</th>
-                <th scope="col">Episode</th>
-                <th scope="col">Season</th>
-                <th scope="col"></th>
+                <th scope="col">Nama Buku</th>
+                <th scope="col">Sampul</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Sisa</th>
+                <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
             <?php
-                $query = mysqli_query($con, "SELECT * FROM series") or
+                $query = mysqli_query($con, "SELECT * FROM buku") or
                 die(mysqli_error($con));
                 if (mysqli_num_rows($query) == 0) {
                     echo '<tr> <td colspan="7"> Tidak ada data </td> </tr>';
@@ -33,19 +32,19 @@ solid #D40013; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 
                     echo'
                         <tr>
                         <th scope="row">'.$no.'</th>
-                        <td>'.$data['name'].'</td>
-                        <td>'.$data['genre'].'</td>
-                        <td>'.$data['realese'].'</td>
-                        <td>'.$data['episode'].'</td>                        
-                        <td>'.$data['season'].'</td>
+                        <td>'.$data['judul'].'</td>
+                        <td>'.$data['gambar'].'</td>
+                        <td>'.$data['stock'].'</td>
+                        <td>'.$data['sisa'].'</td>
                         <td>
-                        <a href="../process/deleteSerieProcess.php?id='.$data['id'].'"
-                        onClick="return confirm ( \'Are you sure want to delete this data?\')"> 
-                            <i style="color: red" class="bi bi-trash3-fill"></i>
-                        <a href="../page/editSeriePage.php?id='.$data['id'].'"
-                        onClick="return confirm ( \'Are you sure want to edit this data?\')"> 
-                        <i style="color: red" class="bi bi-pencil-fill"></i>
-                        </a>
+                            <a href="../process/deleteBukuProcess.php?id='.$data['id'].'"
+                            onClick="return confirm ( \'Are you sure want to delete this data?\')"> 
+                                <i style="color: red" class="bi bi-trash3-fill"></i>
+
+                            <a href="../page/editBukuPage.php?id='.$data['id'].'"
+                            onClick="return confirm ( \'Are you sure want to edit this data?\')"> 
+                            <i style="color: red" class="bi bi-pencil-fill"></i>
+                            </a>
                         </td>
                         </tr>';
                     $no++;
