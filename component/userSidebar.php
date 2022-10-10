@@ -1,90 +1,90 @@
 <?php
- session_start();
-if (!$_SESSION['isLogin']) {
-header("location: ../page/loginPage.php");
-}else {
-include('../db.php');
-}
-echo'
-    <!Doctype html>
-    <html lang="en">
+    session_start();
+    if (!$_SESSION['isLogin']) {
+        header("location: ../page/loginPage.php");
+    }else {
+        include('../../db.php');
+    }
+    echo'
+        <!Doctype html>
+        <html lang="en">
 
-    <head>
-        <!-- Required meta tags -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
-    EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="./style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/4.7.0/css/font-awesome.min.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
-        <title>Dashboard!</title>
-        <style>
-            * {
-                font-family: "Poppins";
-            }
+        <head>
+            <!-- Required meta tags -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- Bootstrap CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
+        EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="./style.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/4.7.0/css/font-awesome.min.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+            <title>Dashboard!</title>
+            <style>
+                * {
+                    font-family: "Poppins";
+                }
 
-            .side-bar {
-                width: 260px;
-                background-color: #D40013;
-                min-height: 100vh;
-            }
+                .side-bar {
+                    width: 260px;
+                    background-color: SaddleBrown;
+                    min-height: 100vh;
+                }
 
-            a {
-                padding-left: 10px;
-                font-size: 13px;
-                text-decoration: none;
-                color: white;
-            }
+                a {
+                    padding-left: 10px;
+                    font-size: 13px;
+                    text-decoration: none;
+                    color: white;
+                }
 
-            .menu i {
-                padding-left: 20px;
-            }
+                .menu i {
+                    padding-left: 20px;
+                }
 
-            .menu .content-menu {
-                padding: 9px 7px;
-            }
+                .menu .content-menu {
+                    padding: 9px 7px;
+                }
 
-            .isActive {
-                background-color: #071853 !important;
-                border-right: 8px solid #010E2F;
-            }
+                .isActive {
+                    background-color: #071853 !important;
+                    border-right: 8px solid #010E2F;
+                }
 
-            i {
-                color: white;
-            }
-        </style>
-    </head>
+                i {
+                    color: white;
+                }
+            </style>
+        </head>
 
-    <body>
-        <aside>
-            <div class="d-flex">
-                <div class="side-bar">
-                    <h2 class="text-light text-center pt-2">PHP</h2>
-                    <hr>
-                    <div class="menu">
-                        <div class="content-menu">
-                            <i class="fa fa-dashboard"></i>
-                            <a href="./user/peminjamanPage.php" style="font-weight:600">Pinjam Buku</a>
-                        </div>
-                        <div class="content-menu ">
-                            <i class="fa fa-film"></i>
-                            <a href="./user/pengembalianPage.php" style="fontweight:600">List Peminjaman</a>
-                        </div>
-                        <div class="content-menu ">
-                            <i class="fa fa-film"></i>
-                            <a href="./user/profilePage.php" style="fontweight:600">Profile</a>
-                        </div>
-                        <div class="content-menu ">
-                            <i class="fa fa-sign-out"></i>
-                            <a href="../process/logoutProcess.php" style="fontweight:600">&nbspLogout</a>
-                        </div>
+        <body>
+            <aside>
+                <div class="d-flex">
+                    <div class="side-bar">
+                        <h2 class="text-light text-center pt-2">Library</h2>
                         <hr>
-                    </div>
-                </div> '
+                        <div class="menu">
+                            <div class="content-menu">
+                                <i class="fa fa-buku"></i>
+                                <a href="./listBukuPage.php" style="font-weight:600">Pinjam Buku</a>
+                            </div>
+                            <div class="content-menu">
+                                <i class="fa fa-buku"></i>
+                                <a href="./pengembalianBukuPage.php" style="font-weight:600">Kembalikan Buku</a>
+                            </div>
+                            <div class="content-menu ">
+                                <i class="fa fa-buku"></i>
+                                <a href="./profilePage.php" style="font-weight:600">Profile</a>
+                            </div>
+                            <div class="content-menu ">
+                                <i class="fa fa-sign-out"></i>
+                                <a href="../../process/logoutProcess.php" style="font-weight:600">Logout</a>
+                            </div>
+                            <hr>
+                        </div>
+                    </div> '
 ?>
