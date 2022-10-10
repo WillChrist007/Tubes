@@ -25,7 +25,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                 <div class="card-body">
                     <form action="../process/registerProcess.php" method="post">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="formlabel">Username</label>
+                            <label for="exampleInputUsername1" class="formlabel">Username</label>
                             <input class="form-control" id="username" name="username" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
@@ -33,19 +33,23 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="formlabel">Nama</label>
+                            <label for="exampleInputNama1" class="formlabel">Nama</label>
                             <input class="form-control" id="nama" name="nama" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputFoto1" class="formlabel">Foto</label>
+                            <input class="form-control" id="foto" name="foto" aria-describedby="emailHelp" type="file" accept="image/*">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="formlabel">Email</label>
                             <input class="form-control" id="email" name="email" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="formlabel">Alamat</label>
+                            <label for="exampleInputAlamat1" class="formlabel">Alamat</label>
                             <input class="form-control" id="alamat" name="alamat" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="formlabel">Nomor Telepon</label>
+                            <label for="exampleInputTelepon1" class="formlabel">Nomor Telepon</label>
                             <input class="form-control" id="telepon" name="telepon" aria-describedby="emailHelp">
                         </div>
                         <div class="d-grid gap-2">

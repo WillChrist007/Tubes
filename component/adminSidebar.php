@@ -31,7 +31,7 @@
 
                 .side-bar {
                     width: 260px;
-                    background-color: #D40013;
+                    background-color: SaddleBrown;
                     min-height: 100vh;
                 }
 
@@ -65,7 +65,7 @@
             <aside>
                 <div class="d-flex">
                     <div class="side-bar">
-                        <h2 class="text-light text-center pt-2">Perpustakaan</h2>
+                        <h2 class="text-light text-center pt-2">Library</h2>
                         <hr>
                         <div class="menu">
                             <div class="content-menu">

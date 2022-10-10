@@ -15,6 +15,7 @@ if (isset($_POST['register'])) {
         $username = $_POST['username'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $nama = $_POST['nama'];
+        $foto = $_POST['foto'];
         $email = $_POST['email'];
         $telepon = $_POST['telepon'];
         $alamat = $_POST['alamat'];
@@ -26,15 +27,15 @@ if (isset($_POST['register'])) {
         </script>';
     }    
 
-    $query = mysqli_query($con, "INSERT INTO user(username, password, nama, email, telepon, alamat)
-    VALUES ('$username', '$password', '$nama', '$email', '$telepon', '$alamat')")
+    $query = mysqli_query($con, "INSERT INTO user(username, password, nama, foto, email, telepon, alamat)
+    VALUES ('$username', '$password', '$nama', '$foto','$email', '$telepon', '$alamat')")
     or die(mysqli_error($con));
 
     if ($query) {
         echo
         '<script>
         alert("Register Success");
-        window.location = "../index.php"
+        window.location = "../page/loginPage.php"
         </script>';
     } else {
         echo

@@ -3,34 +3,27 @@
 if (isset($_POST['add'])) {
     include('../db.php');
 
-    $name = $_POST['name'];
-    $genre = $_POST['genre'];
-    $realese = $_POST['realese'];
-    $episode = $_POST['episode'];
-    $season = $_POST['season'];
-    $synopsis = $_POST['synopsis'];
+    $judul = $_POST['judul'];
+    $gambar = $_POST['gambar'];
+    $penerbit = $_POST['penerbit'];
+    $pengarang = $_POST['pengarang'];
+    $stock = $_POST['stock'];
+    $sisa = $_POST['stock'];
 
-    $output="";
-
-    foreach ($genre as $oneGenre) {
-        $output.= $oneGenre;
-        $output.= ", ";
-    }
-
-    $query = mysqli_query($con, "INSERT INTO series(name, genre, realese, episode, season, synopsis)
-    VALUES ('$name', '$output', '$realese', '$episode', '$season', '$synopsis')")
+    $query = mysqli_query($con, "INSERT INTO buku (judul, gambar, penerbit, pengarang, stock, sisa)
+    VALUES ('$judul', '$gambar', '$penerbit', '$pengarang', '$stock', '$sisa')")
     or die(mysqli_error($con));
 
     if ($query) {
         echo
         '<script>
-        alert("Add Series Success");
-        window.location = "../page/listSeriesPage.php"
+        alert("Sukses Menambah Buku");
+        window.location = "../page/admin/listBukuPage.php"
         </script>';
     } else {
         echo
         '<script>
-        alert("Add Series Failed");
+        alert("Gagal Menambah Buku");
         </script>';
     }
 } else {
