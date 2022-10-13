@@ -1,70 +1,54 @@
 <?php
-    include '../component/adminSidebar.php';
-    include '../db.php';
-
-    $id = $_GET['id'];
-    $query = mysqli_query($con, "SELECT * FROM series WHERE id='$id'") or die(mysqli_error($con));
-    $data = mysqli_fetch_assoc($query);
+    include '../../component/adminSidebar.php'
 ?>
 <div class="container p-3 m-4 h-100" style="background-color: #FFFFFF; border-top: 5px
-    solid #D40013; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    solid SaddleBrown; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
     <div class="body d-flex justify-content-between">
-        <h4>PROFILE</h4>
+        <h4>EDIT BUKU</h4>
     </div>
     <hr>
-    <!-- PROFILE -->
-    <form action="../process/editSerieProcess.php" method="post">
-    <input type="hidden" value="<?php echo $data['id'];?>" name="id">
-        <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-                <input class="form-control" name="name" type="text"  value="<?php echo $data['name']; ?>">
+    <tbody>
+        <?php
+        include '../../db.php';
+
+        $id = $_GET['id'];
+        $query = mysqli_query($con, "SELECT * FROM buku WHERE id = '$id'") or die(mysqli_error($con));
+        $buku = mysqli_fetch_assoc($query);
+        echo'
+        <form action="../../process/editBukuProcess.php" method="post">
+            <div class="field">
+            <label for="exampleInputEmail1" class="form-label">Judul</label>
+                <div class="control">
+                    <input class="form-control" name="judul" aria-describedby="emailHelp" id="judul" value="'.$buku['judul'].'">
+                </div>
             </div>
-        </div>
-        <br>
+            <br>
 
-        <div class="field">
-            <label class="label">Genre</label>
-            <div class="control">
-                <select class="form-select" aria-label="Default select example" name="genre[]" id="genre" multiple>
-                    <option value="<?php echo $data['genre'];?>" selected disabled hidden><?php echo $data['genre'];?></option>
-                    <option value="aksi">Aksi</option>
-                    <option value="superhero">Superhero</option>
-                    <option value="fantasi">Fantasi</option>
-                </select>
+            <div class="field">
+                <label class="label">Sampul</label>
+                <div class="control">
+                    <input class="form-control" name="gambar" aria-describedby="emailHelp" id="gambar" type="file" accept="image/*" value="'.$buku['gambar'].'">
+                </div>
             </div>
-        </div>
-        <br>
+            <br>
 
-        <div class="field">
-            <label class="label">Realese</label>
-            <div class="control">
-                <input class="form-control" name="realese" type="text"  value="<?php echo $data['realese']; ?>">
+            <div class="field">
+                <label class="label">Stock</label>
+                <div class="control">
+                <input class="form-control" name="stock" aria-describedby="emailHelp" id="stock" value="'.$buku['stock'].'">
+                </div>
             </div>
-        </div>
-        <br>
+            <br>
+            
+            <br><br>
 
-        <div class="field">
-            <label class="label">Episode</label>
-            <div class="control">
-                <input class="form-control" name="episode" type="number"  value="<?php echo $data['episode'];?>">
+            <div class="d-grid gap-2">
+                <button type="submit" href="../../process/editBukuProcess.php" class="btn btn-primary" name="submit">Submit</button>
             </div>
-        </div>
-        <br>
-
-        <div class="field">
-            <label class="label">Season</label>
-            <div class="control">
-                <input class="form-control" name="season" type="number"  value="<?php echo $data['season'];?>">
-            </div>
-        </div>
-        <br><br>
-
-        <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-        </div>
-
-    </form>
+        </form>'
+        ?>
+    </tbody>
+    
 </div>
 </aside>
 

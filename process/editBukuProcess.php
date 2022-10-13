@@ -4,29 +4,27 @@
         include('../db.php'); 
 
         $id = $_POST['id']; 
-        $name = $_POST['name']; 
-        $genre = $_POST['genre']; 
-        $realese = $_POST['realese'];  
-        $episode = $_POST['episode'];  
-        $season = $_POST['season']; 
+        $judul = $_POST['judul']; 
+        $gambar = $_POST['gambar']; 
+        $stock = $_POST['stock'];  
 
-        foreach ($genre as $oneGenre) {
-            $output.= $oneGenre;
-            $output.= ", ";
-        }
+        // foreach ($genre as $oneGenre) {
+        //     $output.= $oneGenre;
+        //     $output.= ", ";
+        // }
         
-        $query = mysqli_query($con, "UPDATE series SET name='$name', genre='$output', realese='$realese', episode='$episode', season='$season' WHERE id='$id'") or die(mysqli_error($con)); 
+        $query = mysqli_query($con, "UPDATE buku SET `judul`='$judul', `gambar`='$gambar', `stock`='$stock' WHERE id='$id'") or die(mysqli_error($con)); 
         
         if($query){
             echo 
                 '<script> 
-                    alert("Edit Success"); window.location = "../page/listSeriesPage.php" 
+                    alert("Edit Success"); window.location = "../page/admin/listBukuPage.php" 
                 </script>'; 
         }
         else{ 
             echo 
                 '<script> 
-                    alert("Edit Failed"); window.location = "../editSeriePage.php" 
+                    alert("Edit Failed"); window.location = "../page/admin/editBukuPage.php" 
                 </script>'; 
         } 
     }

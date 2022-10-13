@@ -4,7 +4,7 @@ include '../../component/adminSidebar.php'
 <div class="container p-3 m-4 h-100" style="background-color: #FFFFFF; border-top: 5px
     solid SaddleBrown; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
     <div class="body d-flex justify-content-between">
-        <h4>ADD SERIES</h4>
+        <h4>ADD BUKU</h4>
     </div>
     <hr>
     <!-- PROFILE -->
