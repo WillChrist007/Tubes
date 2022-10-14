@@ -11,23 +11,22 @@
         <?php
         include '../../db.php';
 
-        $id = $_GET['id'];
+        $id = $_SESSION['book']['id'];
         $query = mysqli_query($con, "SELECT * FROM buku WHERE id = '$id'") or die(mysqli_error($con));
-        $buku = mysqli_fetch_assoc($query);
+        $book  = mysqli_fetch_assoc($query);
         echo'
         <form action="../../process/editBukuProcess.php" method="post">
-            <div class="field">
-            <label for="exampleInputEmail1" class="form-label">Judul</label>
-                <div class="control">
-                    <input class="form-control" name="judul" aria-describedby="emailHelp" id="judul" value="'.$buku['judul'].'">
-                </div>
-            </div>
+
+            <div class="mb-3"> 
+                        <label for="exampleInputEmail1" class="form-label">Judul</label> 
+                        <input class="form-control" id="judul" name="judul" aria-describedby="emailHelp" value="'.$book['judul'].'"> 
+                    </div>
             <br>
 
             <div class="field">
                 <label class="label">Sampul</label>
                 <div class="control">
-                    <input class="form-control" name="gambar" aria-describedby="emailHelp" id="gambar" type="file" accept="image/*" value="'.$buku['gambar'].'">
+                    <input class="form-control" name="gambar" aria-describedby="emailHelp" id="gambar" type="file" accept="image/*" value="'.$book['gambar'].'">
                 </div>
             </div>
             <br>
@@ -35,7 +34,7 @@
             <div class="field">
                 <label class="label">Stock</label>
                 <div class="control">
-                <input class="form-control" name="stock" aria-describedby="emailHelp" id="stock" value="'.$buku['stock'].'">
+                <input class="form-control" name="stock" aria-describedby="emailHelp" id="stock" value="'.$book['stock'].'">
                 </div>
             </div>
             <br>
@@ -60,7 +59,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
-<script>
+<!-- <script>
 
     $(document).ready(function () {
 
@@ -71,7 +70,7 @@
         });
 
     });
-</script>
+</script> -->
 
 </body>
 

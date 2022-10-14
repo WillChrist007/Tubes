@@ -37,13 +37,13 @@ solid SaddleBrown; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba
                         <td>'.$data['stock'].'</td>
                         <td>'.$data['sisa'].'</td>
                         <td>
-                            <a href="../../process/deleteBukuProcess.php?id='.$data['id'].'"
-                            onClick="return confirm ( \'Are you sure want to delete this data?\')"> 
+                            <a href="../../process/deleteBukuProcess.php?id='.$data['id'].'
+                            "onClick="return confirm ( \'Are you sure want to delete this data?\')"> 
                                 <i style="color: black" class="bi bi-trash3-fill"></i>
 
-                            <a href="../admin/editBukuPage.php?id='.$data['id'].'"
-                            onClick="return confirm ( \'Are you sure want to edit this data?\')">
-                            <i style="color: black" class="bi bi-pencil-fill"></i>
+                            <a href="../../process/BukuShowProcess.php?id='.$data['id'].'
+                            "onClick="return confirm ( \'Are you sure want to edit this data?\')">
+                                <i style="color: black" class="bi bi-pencil-fill"></i>
                             </a>
                         </td>
                         </tr>';
