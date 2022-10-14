@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $queryDelete = mysqli_query($con, "DELETE FROM buku WHERE id='$id'") or
         die(mysqli_error($con));
-    if ($queryDelete) {
+    if ('stock'=='sisa') {
         echo
             '<script>
             alert("Delete Success"); window.location = "../page/admin/listBukuPage.php"

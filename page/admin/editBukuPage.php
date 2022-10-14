@@ -20,25 +20,18 @@
             <div class="mb-3"> 
                         <label for="exampleInputEmail1" class="form-label">Judul</label> 
                         <input class="form-control" id="judul" name="judul" aria-describedby="emailHelp" value="'.$book['judul'].'"> 
-                    </div>
-            <br>
-
-            <div class="field">
-                <label class="label">Sampul</label>
-                <div class="control">
-                    <input class="form-control" name="gambar" aria-describedby="emailHelp" id="gambar" type="file" accept="image/*" value="'.$book['gambar'].'">
-                </div>
             </div>
-            <br>
 
-            <div class="field">
-                <label class="label">Stock</label>
-                <div class="control">
-                <input class="form-control" name="stock" aria-describedby="emailHelp" id="stock" value="'.$book['stock'].'">
-                </div>
+            <div class="mb-3"> 
+                        <label for="exampleInputEmail1" class="form-label">Sampul</label> 
+                        <input class="form-control" id="gambar" type="file" name="gambar" aria-describedby="emailHelp" value="'.$book['gambar'].'"> 
             </div>
-            <br>
-            
+
+            <div class="mb-3"> 
+                        <label for="exampleInputEmail1" class="form-label">Stock</label> 
+                        <input class="form-control" id="stock" name="stock" aria-describedby="emailHelp" value="'.$book['stock'].'"> 
+            </div>
+
             <br><br>
 
             <div class="d-grid gap-2">
