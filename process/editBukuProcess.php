@@ -7,9 +7,10 @@
         $judul = $_POST['judul']; 
         $gambar = $_POST['gambar']; 
         $stock = $_POST['stock'];
+        $sisa = $_POST['stock'];
         
-        $queryUpdate = mysqli_query($con, "UPDATE `buku` SET `judul`='$judul',`gambar`='$gambar',`stock`='$stock' WHERE id='$id'") 
-        or die(mysqli_error($con)); 
+        $queryUpdate = mysqli_query($con, "UPDATE `buku` SET `judul`='$judul',`gambar`='$gambar',`stock`='$stock', `sisa`='$stock' WHERE id='$id'") 
+        or die(mysqli_error($con));
         
         if($queryUpdate){
             echo 
