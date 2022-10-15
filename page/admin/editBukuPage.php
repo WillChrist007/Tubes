@@ -31,6 +31,16 @@
                         <label for="exampleInputEmail1" class="form-label">Stock</label> 
                         <input class="form-control" id="stock" name="stock" aria-describedby="emailHelp" value="'.$book['stock'].'"> 
             </div>
+            
+            <div class="mb-3"> 
+                        <label for="exampleInputEmail1" class="form-label">Pengarang</label> 
+                        <input class="form-control" id="pengarang" name="pengarang" aria-describedby="emailHelp" value="'.$book['pengarang'].'"> 
+            </div>
+
+            <div class="mb-3"> 
+                        <label for="exampleInputEmail1" class="form-label">Penerbit</label> 
+                        <input class="form-control" id="penerbit" name="penerbit" aria-describedby="emailHelp" value="'.$book['penerbit'].'"> 
+            </div>
 
             <br><br>
 
