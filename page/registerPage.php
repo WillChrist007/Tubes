@@ -23,7 +23,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
             <div class="card text-white bg-dark ma-5 shadow " style="min-width: 25rem;">
                 <div class="card-header fw-bold">Register</div>
                 <div class="card-body">
-                    <form action="../process/registerProcess.php" method="post">
+                    <form action="../process/registerProcess.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="exampleInputUsername1" class="formlabel">Username</label>
                             <input class="form-control" id="username" name="username" aria-describedby="emailHelp">

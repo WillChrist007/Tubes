@@ -20,8 +20,8 @@ if (isset($_POST['register'])) {
         $alamat = $_POST['alamat'];
 
         $foto = $_FILES["uploadfile"]["name"];
-        $tempname = $_FILES["uploadfile"]["temp_name"];
-        $folder = "./img/profile/" . $foto;
+        $tempname = $_FILES["uploadfile"]["tmp_name"];
+        $folder = "../img/profile/" . $foto;
 
         if(move_uploaded_file($tempname, $folder)) {
             echo "<h3> Foto Berhasil Diupload! </h3>";
