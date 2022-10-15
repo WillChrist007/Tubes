@@ -8,7 +8,7 @@ include '../../component/adminSidebar.php'
     </div>
     <hr>
     <!-- PROFILE -->
-    <form action="../../process/addBukuProcess.php" method="post">
+    <form action="../../process/addBukuProcess.php" method="post" enctype="multipart/form-data">
         <div class="field">
             <label class="label">Judul Buku</label>
             <div class="control">
@@ -20,7 +20,7 @@ include '../../component/adminSidebar.php'
         <div class="field">
             <label class="label">Sampul</label>
             <div class="control">
-                <input class="form-control" name="gambar" type="file" accept="image/*">
+                <input class="form-control" name="uploadfile" type="file" accept="image/*">
             </div>
         </div>
         <br>
@@ -65,19 +65,6 @@ include '../../component/adminSidebar.php'
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-
-<script>
-
-    $(document).ready(function () {
-
-        $("#genre").select2({
-
-            placeholder: " genre"
-
-        });
-
-    });
-</script>
 
 </body>
 

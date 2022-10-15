@@ -15,10 +15,20 @@ if (isset($_POST['register'])) {
         $username = $_POST['username'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $nama = $_POST['nama'];
-        $foto = $_POST['foto'];
         $email = $_POST['email'];
         $telepon = $_POST['telepon'];
         $alamat = $_POST['alamat'];
+
+        $foto = $_FILES["uploadfile"]["name"];
+        $tempname = $_FILES["uploadfile"]["temp_name"];
+        $folder = "./img/profile/" . $foto;
+
+        if(move_uploaded_file($tempname, $folder)) {
+            echo "<h3> Foto Berhasil Diupload! </h3>";
+        } else {
+            echo "<h3> Foto Gagal Diupload! </h3>";
+        }
+
     } else {
         echo '
         <script>

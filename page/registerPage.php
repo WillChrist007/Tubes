@@ -38,7 +38,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputFoto1" class="formlabel">Foto</label>
-                            <input class="form-control" id="foto" name="foto" aria-describedby="emailHelp" type="file" accept="image/*">
+                            <input class="form-control" id="foto" name="uploadfile" aria-describedby="emailHelp" type="file" accept="image/*">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="formlabel">Email</label>
