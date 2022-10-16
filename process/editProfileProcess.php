@@ -1,81 +1,66 @@
-<?php
-session_start();
+<?php 
+    session_start(); 
+    
 
-include "koneksi.php";
+    if(isset($_POST['submit'])){ 
+        include('../db.php');
 
-//dapatkan data user dari form register
-$user = [
-	'username' => $_POST['username'],
-	'email' => $_POST['email'],
-    'telepon' => $_POST['telepon'],
-    'password' => $_POST['password'],
-	'password_confirmation' => $_POST['password_confirmation'],
-];
+        $testUsername = $_POST['username'];
+        $testEmail = $_POST['email'];
+        $testPhone = $_POST['telepon'];
 
-//cek jika password tidak kosong, jika kosong jangan di update.
-if($_POST['password'] !== ''){
 
-    //validasi jika password & password_confirmation sama
-    if($user['password'] != $user['password_confirmation']){
-        $_SESSION['error'] = 'Password yang anda masukkan tidak sama dengan password confirmation.';
-        $_SESSION['nama'] = $_POST['nama'];
-        $_SESSION['username'] = $_POST['username'];
-        header("Location: /profile.php");
-        return;
+        $result = mysqli_query($con, "SELECT id FROM user WHERE username = '$testUsername' OR email = '$testEmail' OR telepon = '$testPhone'") or die (mysqli_error($con));
+
+        if($result->num_rows <= 1) {
+            $id = $_SESSION['user']['id']; 
+            $username = $_POST['username'];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $nama = $_POST['nama'];
+            $email = $_POST['email'];
+            $telepon = $_POST['telepon'];
+            $alamat = $_POST['alamat'];
+
+            $foto = $_FILES["uploadfile"]["name"];
+            $tempname = $_FILES["uploadfile"]["tmp_name"];
+            $folder = "../img/profile/" . $foto;
+
+            if(move_uploaded_file($tempname, $folder)) {
+                echo "<h3> Foto Berhasil Diupload! </h3>";
+            } else {
+                echo "<h3> Foto Gagal Diupload! </h3>";
+            }
+
+        } else {
+            echo '
+            <script>
+            alert("Register Failed (Username / Email / Phone Number Already Taken)");
+            window.location = "../index.php"
+            </script>';
+        }    
+        
+        $query = mysqli_query($con, "UPDATE user SET nama='$nama', username='$username', password='$password', email='$email', foto='$foto', telepon='$telepon', alamat='$alamat' WHERE id='$id'") or die(mysqli_error($con)); 
+        
+        if($query){ 
+            $user = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM user WHERE id = '$id'"));
+            $_SESSION['user'] = $user;
+            echo 
+                '<script> 
+                    alert("Edit Success"); window.location = "../page/user/profilePage.php" 
+                </script>'; 
+        }
+        else{ 
+            echo 
+                '<script> 
+                    alert("Edit Failed"); window.location = "../editProfilePage.php" 
+                </script>'; 
+        } 
     }
-}
-
-//check apakah user dengan username tersebut ada di table users yang kecuali user tersebut.
-$query = "select * from users where username = ? and id != ? limit 1";
-$stmt = $mysqli->stmt_init();
-$stmt->prepare($query);
-$stmt->bind_param('si', $user['username'], $user['id']);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_array(MYSQLI_ASSOC);
-
-//jika username sudah ada, maka return kembali ke halaman profile.
-if($row != null){
-	$_SESSION['error'] = 'Username: '.$user['username'].' yang anda masukkan sudah ada di database.';
-	$_SESSION['nama'] = $_POST['nama'];
-	$_SESSION['password'] = $_POST['password'];
-	$_SESSION['password_confirmation'] = $_POST['password_confirmation'];
-	header("Location: /profile.php");
-	return;
-
-}else{
-
-
-	$stmt = $mysqli->stmt_init();
-
-	//username unik. update data user di database.
-	$query = "update users set nama = ?, username = ? where id = ?";
-
-	//jika password dirubah
-    if($_POST['password'] !== ''){
-	    $password = password_hash($user['password'],PASSWORD_DEFAULT);
-        $query = "update users set nama = ?, username = ? , password = ? where id = ?";
-    }
-
-	$stmt->prepare($query);
-
-    //jika password dirubah
-    if($_POST['password'] !== ''){
-	    $stmt->bind_param('sssi', $user['nama'],$user['username'],$password, $user['id']);
-    }else{
-	    $stmt->bind_param('ssi', $user['nama'],$user['username'], $user['id']);
-    }
-	$result = $stmt->execute();
-	$result = $stmt->affected_rows;
-    if($result){
-        $_SESSION['nama'] = $_POST['nama'];
-        $_SESSION['username'] = $_POST['username'];
-	    $_SESSION['message']  = 'Berhasil mengupdate data profile di sistem.';
-        header("Location: /index.php");
-    }else{
-        $_SESSION['error'] = 'Gagal update data profile.';
-        header("Location: /profile.php");
-    }
-}
-
+    else{ 
+        echo 
+            '<script> 
+                alert("Edit Failed");
+                window.history.back() 
+            </script>'; 
+    } 
 ?>

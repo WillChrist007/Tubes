@@ -1,98 +1,74 @@
 <?php
-session_start();
-
-//include koneksi
-include "koneksi.php";
-
-//get user detail
-$username = $_SESSION['username'];
-$query = "select * from users where username = ? limit 1";
-$stmt = $mysqli->stmt_init();
-$stmt->prepare($query);
-$stmt->bind_param('s', $username);
-$stmt->execute();
-$result = $stmt->get_result();
-$user = $result->fetch_array(MYSQLI_ASSOC);
-
+include '../../component/userSidebar.php'
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-	<title>Edit Profile - PHP</title>
-</head>
-<body>
-	<div class="container">
-
-		<div class="row">
-			<div class="col-md-4 offset-md-4 mt-5">
-
-				<?php
-				if(isset($_SESSION['error'])) {
-				?>
-				<div class="alert alert-warning" role="alert">
-				  <?php echo $_SESSION['error']?>
-				</div>
-				<?php
-				}
-				?>
-
-				<?php
-				if(isset($_SESSION['message'])) {
-				?>
-				<div class="alert alert-success" role="alert">
-				  <?php echo $_SESSION['message']?>
-				</div>
-				<?php
-				}
-				?>
-
-
-				<div class="card ">
-					<div class="card-title text-center">
-						<h1>Profile Form</h1>
-					</div>
-					<div class="card-body">
-						<form action="update-profile.php" method="post">
-                            <input type="hidden" name="id" class="form-control" id="id" value="<?php echo @$user['id']?>" >
-							<div class="form-group">
-								<label for="username">Nama Lengkap</label>
-								<input type="text" name="nama" class="form-control" id="name" value="<?php echo @$user['nama']?>" aria-describedby="name" placeholder="Nama lengkap" autocomplete="off">
-
-							</div>
-							<div class="form-group">
-								<label for="username">Username</label>
-								<input type="text" name="username" class="form-control" id="username" value="<?php echo @$user['username']?>" aria-describedby="username" placeholder="username" autocomplete="off">
-
-							</div>
-							<div class="form-group">
-								<label for="password">Password</label>
-								<input type="password" name="password" class="form-control" id="password" value="<?php echo @$_SESSION['password']?>" placeholder="Password">
-							</div>
-							<div class="form-group">
-								<label for="password">Konfirmasi Password</label>
-								<input type="password" name="password_confirmation" class="form-control" id="password_confirmation" value="<?php echo @$_SESSION['password_confirmation']?>"  placeholder="Password">
-							</div>
-
-							<button type="submit" class="btn btn-primary">Update Data</button>
-						</form>
-
-						<a href="/index.php">Batal</a>
-					</div>
-				</div>
-			</div>
-
+<div class="container p-3 m-4 h-100" style="background-color: #FFFFFF; border-top: 5px
+    solid SaddleBrown; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <div class="body d-flex justify-content-between">
+        <h4>PROFILE</h4>
+		<a href="../user/editProfilePage.php"><i style="color: blue" class="bi bi-pencil-square"> Edit Profile</i></a>     
+    </div>
+    <hr>
+    <!-- PROFILE -->
+	
+    <form>
+		<div style="display:flex; justify-content:center;">
+			<img class='rounded-circle' src ="../../img/profile/<?php echo $_SESSION ['user']['foto']; ?>" style="border-radius: 5px;">
 		</div>
+		<br>
 
-	</div>
+        <div class="field">
+            <label class="label">Nama</label>
+            <div class="control">
+                <input class="form-control" name="nama" type="text" disabled value="<?php echo $_SESSION['user']['nama']; ?>">
+            </div>
+        </div>
+        <br>
+
+		<div class="field">
+			<label class="label">Username</label>
+			<div class="control">
+				<input class="form-control" name="username" type="text" disabled value="<?php echo $_SESSION['user']['username'];?>">
+			</div>
+		</div>
+		<br>
+
+		<div class="field">
+			<label class="label">Password</label>
+			<div class="control">
+				<input class="form-control" name="password" type="password" disabled value="<?php echo $_SESSION['user']['password'];?>">
+			</div>
+		</div>
+		<br>
+
+		<div class="field">
+			<label class="label">Email</label>
+			<div class="control">
+				<input class="form-control" name="email" type="text" disabled value="<?php echo $_SESSION['user']['email']; ?>">
+			</div>
+		</div>
+		<br>
+
+		<div class="field">
+			<label class="label">Alamat</label>
+			<div class="control">
+				<input class="form-control" name="alamat" type="text" disabled value="<?php echo $_SESSION['user']['alamat']; ?>">
+			</div>
+		</div>
+		<br>
+
+        <div class="field">
+            <label class="label">Nomor Telepon</label>
+            <div class="control">
+                <input class="form-control" name="telepon" type="number" disabled value="<?php echo $_SESSION['user']['telepon']; ?>">
+            </div>
+        </div>
+        <br>		
+    </form>
+</div>
+</aside>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
 </body>
-<?php
-unset($_SESSION['error']);
-unset($_SESSION['message']);
-?>
+
+</html>
