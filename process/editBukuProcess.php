@@ -13,7 +13,7 @@
     //Variabel temp
         $temp = $stock - $stock1;
 
-    //Perhitungan Sisa
+    //Perhitungan Sisa Buku
         $sisa = $temp + $sisa1;
         
         $queryUpdate = mysqli_query($con, "UPDATE `buku` SET `judul`='$judul',`gambar`='$gambar',`stock`='$stock', `sisa`='$sisa' WHERE id='$id'") 
