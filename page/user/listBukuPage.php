@@ -35,8 +35,9 @@ solid SaddleBrown; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba
                             <td>
                                 <a href="../../process/PeminjamanBukuShowProcess.php?id='.$data['id'].'
                                     "onClick="return confirm ( \'Are you sure want to borrow this book?\')">
-                                        <i style="color: green" class="fa fa-book-open"></i>
+                                    <button type="submit" class="btn btn-primary" name="pinjam">Pinjam</button>  
                                 </a>
+                            </td>    
                         </tr>';
                     }else{
                         echo'
@@ -45,9 +46,10 @@ solid SaddleBrown; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba
                             <td><img src = ../../img/cover/' . $data['gambar'] .' style="height: 220px; width: 150px; border-radius: 5px"></td>
                             <td>'.$data['sisa'].'</td>
                             <td>
-                                <a href="#" id="pinjamButton">
-                                        <i style="color: green" class="fa fa-book-open"></i>
+                                <a class="btn btn-primary disabled">
+                                    Pinjam 
                                 </a>
+                            </td>    
                         </tr>';
                     }
                     $no++;    

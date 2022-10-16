@@ -59,6 +59,11 @@
                 i {
                     color: white;
                 }
+
+                th, td {
+                    vertical-align: middle;
+                    text-align: center;
+                }
             </style>
         </head>
 
