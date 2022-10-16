@@ -34,17 +34,12 @@ solid SaddleBrown; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba
                             <th scope="row">'.$no.'</th>
                             <td>'.$data['judul'].'</td>
                             <td><img src = ../../img/cover/' . $data['gambar'] .' style="height: 220px; width: 150px; border-radius: 5px"></td>
-                            <td>'.$data['stock'].'</td>
-                            <td>'.$data['sisa'].'</td>
+                            <td>'.$data['status'].'</td>
+                            <td>'.$data['tgl_kembali'].'</td>
                             <td>
-                                <a href="../../process/deleteBukuProcess.php?id='.$data['id'].'
-                                "onClick="return confirm ( \'Are you sure want to delete this data?\')"> 
+                                <a href="../../process/pengembalianBukuProcess.php?id='.$data['id'].'
+                                "onClick="return confirm ( \'Are you sure want to return the book?\')"> 
                                     <i style="color: red" class="bi bi-trash3-fill"></i>
-
-                                <a href="../../process/BukuShowProcess.php?id='.$data['id'].'
-                                "onClick="return confirm ( \'Are you sure want to edit this data?\')">
-                                    <i style="color: blue" class="bi bi-pencil-fill"></i>
-                                </a>
                             </td>
                         </tr>';
                     $no++;
