@@ -7,9 +7,16 @@
         $judul = $_POST['judul']; 
         $gambar = $_POST['gambar']; 
         $stock = $_POST['stock'];
-        $sisa = $_POST['stock'];
+        $sisa = $_POST['sisa'];
+        $sisa1 = $_SESSION['book']['sisa'];
+        $stock1 = $_SESSION['book']['stock'];
+    //Variabel temp
+        $temp = $stock - $stock1;
+
+    //Perhitungan Sisa Buku
+        $sisa = $temp + $sisa1;
         
-        $queryUpdate = mysqli_query($con, "UPDATE `buku` SET `judul`='$judul',`gambar`='$gambar',`stock`='$stock', `sisa`='$stock' WHERE id='$id'") 
+        $queryUpdate = mysqli_query($con, "UPDATE `buku` SET `judul`='$judul',`gambar`='$gambar',`stock`='$stock', `sisa`='$sisa' WHERE id='$id'") 
         or die(mysqli_error($con));
         
         if($queryUpdate){
