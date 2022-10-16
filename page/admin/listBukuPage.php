@@ -6,7 +6,7 @@ solid SaddleBrown; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba
 0.19);">
     <div class="body d-flex justify-content-between">
         <h4>LIST BUKU</h4>
-        <a href="../admin/addBukuPage.php"><i style="color: SaddleBrown" class="bi bi-plus-square-fill"> Tambah Buku</i></a>
+        <a href="../admin/addBukuPage.php"><i style="color: blue" class="bi bi-plus-square-fill"> Tambah Buku</i></a>
     </div>
     <hr>
     <table class="table ">
