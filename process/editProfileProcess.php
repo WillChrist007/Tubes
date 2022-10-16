@@ -39,7 +39,7 @@
             </script>';
         }    
         
-        $query = mysqli_query($con, "UPDATE user SET nama='$nama', username='$username', email='$email', foto='$foto', telepon='$telepon', alamat='$alamat' WHERE id='$id'") or die(mysqli_error($con)); 
+        $query = mysqli_query($con, "UPDATE user SET nama='$nama', username='$username', password='$password', email='$email', foto='$foto', telepon='$telepon', alamat='$alamat' WHERE id='$id'") or die(mysqli_error($con)); 
         
         if($query){ 
             $user = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM user WHERE id = '$id'"));

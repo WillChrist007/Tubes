@@ -28,7 +28,7 @@ include '../../component/userSidebar.php'
 		<div class="field">
 			<label class="label">Password</label>
 			<div class="control">
-				<input class="form-control" name="password" type="password"  value="<?php echo $_SESSION['user']['password'];?>">
+				<input class="form-control" name="password" type="password">
 			</div>
 		</div>
 		<br>
