@@ -87,6 +87,10 @@
                                 <a href="./profilePage.php" style="font-weight:600">Profile</a>
                             </div>
                             <div class="content-menu ">
+                                <i class="fa fa-comments"></i>
+                                <a href="./listFeedbackPage.php" style="font-weight:600">Feedback</a>
+                             </div>
+                            <div class="content-menu ">
                                 <i class="fa fa-sign-out"></i>
                                 <a href="../../process/logoutProcess.php" style="font-weight:600">Logout</a>
                             </div>

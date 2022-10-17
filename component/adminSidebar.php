@@ -91,6 +91,10 @@
                                 <a href="./editPasswordPage.php" style="font-weight:600">Ganti Password</a>
                             </div>
                             <div class="content-menu ">
+                                <i class="fa fa-comments"></i>
+                                <a href="./confirmFeedbackPage.php" style="font-weight:600">Confirm Feedback</a>
+                             </div>
+                            <div class="content-menu ">
                                 <i class="fa fa-sign-out"></i>
                                 <a href="../../process/logoutProcess.php" style="font-weight:600">Logout</a>
                             </div>
