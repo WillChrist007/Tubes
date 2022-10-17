@@ -79,7 +79,11 @@
                                 <a href="./listBukuPage.php" style="font-weight:600">List Buku</a>
                             </div>
                             <div class="content-menu">
-                                <i class="fa fa-book"></i>
+                                <i class="bi bi-newspaper"></i>
+                                <a href="./listLokerPage.php" style="font-weight:600">List LoKer</a>
+                            </div>
+                            <div class="content-menu">
+                                <i class="bi bi-person-rolodex"></i>
                                 <a href="./listPeminjamPage.php" style="font-weight:600">List Peminjam</a>
                             </div>
                             <div class="content-menu ">
