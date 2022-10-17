@@ -18,7 +18,7 @@
         <form action="../../process/feedbackProcess.php" method="post">
 
             <div class="mb-3"> 
-                        <label for="exampleInputEmail1" class="form-label">Feedback</label> 
+                        <label for="exampleInputEmail1" class="form-label">Isi Saran</label> 
                         <input class="form-control" id="isi_saran" name="isi_saran" aria-describedby="emailHelp" value="'.$feedback['isi_saran'].'">  
             </div>
 

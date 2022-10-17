@@ -12,7 +12,7 @@ include '../../component/userSidebar.php'
         <div class="field">
             <label class="label">Isi Saran</label>
             <div class="control">
-                <textarea class="form-control" name="isi_saran"></textarea>
+            <input class="form-control" name="isi_saran" type="text">
             </div>
         </div>
         <br><br>
