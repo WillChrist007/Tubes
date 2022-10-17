@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
         echo
         '<script>
         alert("Sukses Mengembalikan Buku");
-        window.location = "../page/user/listBukuPage.php"
+        window.location = "../page/user/pengembalianBukuPage.php"
         </script>';
     } else {
         echo

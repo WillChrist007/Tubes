@@ -19,7 +19,7 @@
 
             <div class="mb-3"> 
                         <label for="exampleInputEmail1" class="form-label">Feedback</label> 
-                        <textarea class="form-control" id="isi_saran" name="isi_saran" aria-describedby="emailHelp" value="'.$feedback['isi_saran'].'"></textarea> 
+                        <input class="form-control" id="isi_saran" name="isi_saran" aria-describedby="emailHelp" value="'.$feedback['isi_saran'].'">  
             </div>
 
             <br><br>
@@ -27,7 +27,7 @@
             <div class="d-grid gap-2">
                 <button type="submit" href="../../process/feedbackProcess.php" class="btn btn-primary" name="submit">Submit</button>
             </div>
-        </form>'
+        </form>';
         ?>
     </tbody>
     
