@@ -20,7 +20,7 @@ include '../../component/userSidebar.php'
 		<div class="field">
 			<label class="label">Username</label>
 			<div class="control">
-				<input class="form-control" name="username" type="text"  value="<?php echo $_SESSION['user']['username'];?>">
+				<input class="form-control" name="username" type="text" value="<?php echo $_SESSION['user']['username'];?>">
 			</div>
 		</div>
 		<br>

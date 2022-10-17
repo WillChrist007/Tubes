@@ -8,12 +8,12 @@
         $testUsername = $_POST['username'];
         $testEmail = $_POST['email'];
         $testPhone = $_POST['telepon'];
+        $id = $_SESSION['user']['id'];
 
 
-        $result = mysqli_query($con, "SELECT id FROM user WHERE username = '$testUsername' OR email = '$testEmail' OR telepon = '$testPhone'") or die (mysqli_error($con));
+        $result = mysqli_query($con, "SELECT id FROM user WHERE id = '$id' OR username = '$testUsername' OR email = '$testEmail' OR telepon = '$testPhone'") or die (mysqli_error($con));
 
         if($result->num_rows <= 1) {
-            $id = $_SESSION['user']['id']; 
             $username = $_POST['username'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $nama = $_POST['nama'];
@@ -31,30 +31,32 @@
                 echo "<h3> Foto Gagal Diupload! </h3>";
             }
 
+            $query = mysqli_query($con, "UPDATE user SET nama='$nama', username='$username', password='$password', email='$email', foto='$foto', telepon='$telepon', alamat='$alamat' WHERE id='$id'") or die(mysqli_error($con)); 
+        
+            if($query){ 
+                $user = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM user WHERE id = '$id'"));
+                $_SESSION['user'] = $user;
+                echo 
+                    '<script> 
+                        alert("Edit Success"); window.location = "../page/user/profilePage.php" 
+                    </script>'; 
+            }
+            else{ 
+                echo 
+                    '<script> 
+                        alert("Edit Failed"); window.location = "../editProfilePage.php" 
+                    </script>'; 
+            } 
+
         } else {
             echo '
             <script>
             alert("Register Failed (Username / Email / Phone Number Already Taken)");
-            window.location = "../index.php"
+            window.location = "../page/user/editProfilePage.php"
             </script>';
         }    
         
-        $query = mysqli_query($con, "UPDATE user SET nama='$nama', username='$username', password='$password', email='$email', foto='$foto', telepon='$telepon', alamat='$alamat' WHERE id='$id'") or die(mysqli_error($con)); 
         
-        if($query){ 
-            $user = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM user WHERE id = '$id'"));
-            $_SESSION['user'] = $user;
-            echo 
-                '<script> 
-                    alert("Edit Success"); window.location = "../page/user/profilePage.php" 
-                </script>'; 
-        }
-        else{ 
-            echo 
-                '<script> 
-                    alert("Edit Failed"); window.location = "../editProfilePage.php" 
-                </script>'; 
-        } 
     }
     else{ 
         echo 
