@@ -6,7 +6,7 @@ solid SaddleBrown; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba
 0.19);">
     <div class="body d-flex justify-content-between">
         <h4>LIST LOWONGAN PEKERJAAN</h4>
-        <a href="../admin/addLokerPage.php"><i style="color: blue" class="bi bi-plus-square-fill"> Tambah Buku</i></a>
+        <a href="../admin/addLokerPage.php"><i style="color: blue" class="bi bi-plus-square-fill"> Tambah LoKer</i></a>
     </div>
     <hr>
     <table class="table ">
@@ -39,10 +39,10 @@ solid SaddleBrown; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba
                             <td>'.$data['syarat'].'</td>
                             <td>'.$data['kontak'].'</td>
                             <td>
-                                <a href="../process/deleteLokerProcess.php?id='.$data['id'].'"
+                                <a href="../../process/deleteLokerProcess.php?id='.$data['id'].'"
                                 onClick="return confirm ( \'Are you sure want to delete this data?\')"> 
                                     <i style="color: red" class="bi bi-trash3-fill"></i>
-                                <a href="../page/editLokerPage.php?id='.$data['id'].'"
+                                <a href="../admin/editLokerPage.php?id='.$data['id'].'"
                                 onClick="return confirm ( \'Are you sure want to edit this data?\')"> 
                                 <i style="color: blue" class="bi bi-pencil-fill"></i>
                                 </a>
