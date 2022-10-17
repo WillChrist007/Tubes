@@ -82,6 +82,10 @@
                                 <i class="fa fa-book"></i>
                                 <a href="./pengembalianBukuPage.php" style="font-weight:600">Kembalikan Buku</a>
                             </div>
+                            <div class="content-menu">
+                                <i class="bi bi-newspaper"></i>
+                                <a href="./infoLokerPage.php" style="font-weight:600">Info LoKer</a>
+                            </div>
                             <div class="content-menu ">
                                 <i class="fa fa-user"></i>
                                 <a href="./profilePage.php" style="font-weight:600">Profile</a>
