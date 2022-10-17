@@ -6,45 +6,35 @@ solid SaddleBrown; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba
 0.19);">
     <div class="body d-flex justify-content-between">
         <h4>LIST PEMINJAM</h4>
-        <a href="../admin/listPeminjamPage.php"><i style="color: SaddleBrown" class="bi bi-plus-square-fill"> listPeminjamPage</i></a>
     </div>
     <hr>
     <table class="table ">
         <thead>
             <tr>
-                <th scope="col">username</th>
-                <th scope="col">judul</th>
+                <th scope="col">No</th>
+                <th scope="col">Username Peminjam</th>
+                <th scope="col">Nama Buku</th>
             </tr>
         </thead>
         <tbody>
             <?php
-                $query = mysqli_query($con, "SELECT `user`.`username`, `peminjaman`.`status`, `buku`.`judul`*FROM `buku` LEFT JOIN `peminjaman` ON `peminjaman`.`id_buku` = `buku`.`id` LEFT JOIN `user` ON `peminjaman`.`id_user` = `user`.`id`WHERE (`peminjaman`.`status` = 1)") or
+                $query = mysqli_query($con, "SELECT `user`.`username`, `peminjaman`.`status`, `buku`.`judul` FROM `buku` 
+                LEFT JOIN `peminjaman` ON `peminjaman`.`id_buku` = `buku`.`id` LEFT JOIN `user` ON `peminjaman`.`id_user` = `user`.`id` 
+                WHERE (`peminjaman`.`status`= 1)") or
                 die(mysqli_error($con));
                 if (mysqli_num_rows($query) == 0) {
-                    echo '<tr> <td colspan="7"> Tidak ada data </td> </tr>';
+                    echo '<tr> <td colspan="7"> Tidak ada buku yang sedang dipinjam </td> </tr>';
                 }else{
                     $no = 1;
                     while($data = mysqli_fetch_assoc($query)){
-                    echo'
-                        <tr>
-                            <th scope="row">'.$no.'</th>
-                            <td>'.$data['judul'].'</td>
-                            <td><img src = ../../img/cover/' . $data['gambar'] .' style="height: 220px; width: 150px; border-radius: 5px"></td>
-                            <td>'.$data['stock'].'</td>
-                            <td>'.$data['sisa'].'</td>
-                            <td>
-                            <a href="../../process/peminjamanBukuProcess.php?id='.$data['id'].'
-                            "onClick="return confirm ( \'Apakah Kamu yakin ingin meminjam Buku?\')"> 
-                                <i style="color: red" class="bi bi-trash3-fill"></i>
-
-                            <a href="../../process/PeminjamanBukuShowProcess.php?id='.$data['id'].'
-                            "onClick="return confirm ( \'Are you sure want to edit this data?\')">
-                                <i style="color: blue" class="bi bi-pencil-fill"></i>
-                            </a>
-                            </td>
-                        </tr>';
-                    $no++;
-                }
+                        echo'
+                            <tr>
+                                <th scope="row">'.$no.'</th>
+                                <td>'.$data['username'].'</td>
+                                <td>'.$data['judul'].'</td>
+                            </tr>';
+                        $no++;
+                    }
                 }
             ?>
         </tbody>
