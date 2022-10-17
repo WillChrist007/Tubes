@@ -9,15 +9,8 @@ if (isset($_POST['add'])) {
     $syarat = $_POST['syarat'];
     $kontak = $_POST['kontak'];
 
-    $output="";
-
-    foreach ($asal as $oneGenre) {
-        $output.= $oneGenre;
-        $output.= ", ";
-    }
-
     $query = mysqli_query($con, "INSERT INTO loker(pekerjaan, asal, lokasi, syarat, kontak)
-    VALUES ('$pekerjaan', '$output', '$lokasi', '$syarat', '$kontak')")
+    VALUES ('$pekerjaan', '$asal', '$lokasi', '$syarat', '$kontak')")
     or die(mysqli_error($con));
 
     if ($query) {

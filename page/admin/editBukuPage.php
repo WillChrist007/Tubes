@@ -24,7 +24,7 @@
 
             <div class="mb-3"> 
                         <label for="exampleInputEmail1" class="form-label">Sampul</label> 
-                        <input class="form-control" id="gambar" type="file" name="gambar" aria-describedby="emailHelp" value="'.$book['gambar'].'"> 
+                        <input class="form-control" id="gambar" type="file" accept="image/*" name="gambar" aria-describedby="emailHelp" value="'.$book['gambar'].'"> 
             </div>
 
             <div class="mb-3"> 
